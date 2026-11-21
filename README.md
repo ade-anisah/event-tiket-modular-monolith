@@ -8,6 +8,7 @@ D3 Teknik Informatika, Universitas AMIKOM Yogyakarta.
 | Nama | NIM | Peran utama |
 |---|---|---|
 | Ade Anisah | 25.01.5251 | Kerangka proyek dan EventModule |
+| Septiyana Hardiyanti | 25.01.5281 | TicketModule |
 
 ## Status
 
