@@ -4,7 +4,7 @@
 
 | Contract | Dimiliki modul | Dipakai oleh | Method | Keterangan |
 |---|---|---|---|---|
-| `EventLookupContract` | EventModule | TicketModule, RegistrationModule | `findPublished(int $eventId): ?EventSummary` dan `ensureOpen(int $eventId): void` | Cek event ada dan berstatus published. Melempar `EventTidakDibukaException` bila tidak |
+| `EventLookupContract` | EventModule | TicketModule, RegistrationModule | `find(int $eventId): ?EventSummary`, `findPublished(int $eventId): ?EventSummary`, dan `ensureOpen(int $eventId): void` | `find` untuk semua status, `findPublished` hanya event published, `ensureOpen` melempar `EventTidakDibukaException` bila event tidak ada atau belum published |
 | `TicketInventoryContract` | TicketModule | RegistrationModule | `summary(int $ticketTypeId): TicketTypeSummary` dan `reserveAndIssue(int $ticketTypeId, int $jumlah, int $registrationId, int $userId): array` | Mengurangi kuota dan menerbitkan tiket berkode secara atomik. Melempar `KuotaTiketPenuhException` bila sisa kurang |
 
 `EventSummary` dan `TicketTypeSummary` adalah objek data sederhana milik modul penyedia. Modul pemakai hanya menerima objek itu, bukan model Eloquent.
