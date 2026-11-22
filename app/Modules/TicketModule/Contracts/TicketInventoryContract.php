@@ -2,6 +2,8 @@
 
 namespace App\Modules\TicketModule\Contracts;
 
+use App\Modules\TicketModule\Exceptions\KuotaTiketPenuhException;
+
 interface TicketInventoryContract
 {
     /**
@@ -14,7 +16,7 @@ interface TicketInventoryContract
      *
      * @return list<string> daftar kode tiket yang diterbitkan
      *
-     * @throws \App\Modules\TicketModule\Exceptions\KuotaTiketPenuhException
+     * @throws KuotaTiketPenuhException
      */
     public function reserveAndIssue(int $ticketTypeId, int $jumlah, int $registrationId, int $userId): array;
 }

@@ -2,6 +2,8 @@
 
 namespace App\Modules\EventModule\Contracts;
 
+use App\Modules\EventModule\Exceptions\EventTidakDibukaException;
+
 interface EventLookupContract
 {
     /**
@@ -17,7 +19,7 @@ interface EventLookupContract
     /**
      * Pastikan event ada dan published.
      *
-     * @throws \App\Modules\EventModule\Exceptions\EventTidakDibukaException
+     * @throws EventTidakDibukaException
      */
     public function ensureOpen(int $eventId): void;
 }
