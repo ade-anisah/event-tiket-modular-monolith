@@ -2,24 +2,23 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Modules\EventModule\Database\Seeders\EventModuleSeeder;
+use App\Modules\RegistrationModule\Database\Seeders\RegistrationModuleSeeder;
+use App\Modules\TicketModule\Database\Seeders\TicketModuleSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Urutan penting: akun lebih dulu, karena seeder modul membutuhkan akun admin dan peserta.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            UserSeeder::class,
+            EventModuleSeeder::class,
+            TicketModuleSeeder::class,
+            RegistrationModuleSeeder::class,
         ]);
     }
 }
