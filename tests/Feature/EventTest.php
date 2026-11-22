@@ -46,4 +46,12 @@ class EventTest extends TestCase
 
         $this->assertDatabaseCount('events', 0);
     }
+
+    public function test_alamat_admin_events_menolak_peserta_dan_mengarahkan_admin(): void
+    {
+        $peserta = User::factory()->create(['role' => User::ROLE_PESERTA]);
+
+        $this->actingAs($peserta)->get('/admin/events')->assertForbidden();
+        $this->actingAs($this->admin())->get('/admin/events')->assertRedirect(route('event.index'));
+    }
 }
