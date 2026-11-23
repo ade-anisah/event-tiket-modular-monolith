@@ -55,4 +55,4 @@ php artisan test
 
 ## Video demo
 
-LINK_VIDEO_YOUTUBE_UNLISTED
+https://youtu.be/KgcY3crDG70
